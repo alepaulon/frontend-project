@@ -27,7 +27,7 @@ const CustomCard: React.FC<CustomCardTypes> = ({
 }) => {
   return (
     <Card className={`w-96 h-56 ${isActive ? "activeCard" : ""} border-2`}>
-      <CardHeader className="flex flex-row">
+      <CardHeader className="flex flex-row relative">
         <Image
           src={avatarSrc}
           alt="Avatar"
@@ -37,7 +37,7 @@ const CustomCard: React.FC<CustomCardTypes> = ({
             <CardTitle className="min-w-max">{name}</CardTitle>
             <CardDescription>{country}</CardDescription>
         </div>
-        <div className="flex flex-row ml-28">
+        <div className="flex flex-row absolute top-0 right-0 pt-6 pr-6">
           <p>{score}</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
