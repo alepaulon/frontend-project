@@ -1,9 +1,44 @@
-import React from "react";
+"use client";
 
+import React from "react";
 import { CustomCard } from "@/components/ui/customcard";
-import firstAvatar from '@/public/icons/carousel/1.png'
-import secondAvatar from '@/public/icons/carousel/2.png'
-import thirdAvatar from '@/public/icons/carousel/3.png'
+import firstAvatar from "@/public/icons/carousel/1.png";
+import secondAvatar from "@/public/icons/carousel/2.png";
+import thirdAvatar from "@/public/icons/carousel/3.png";
+import Carousel from "./ui/carousel";
+import { StaticImageData } from "next/image";
+
+
+const cards = [
+  {
+    index: 1,
+    avatarSrc: firstAvatar,
+    name: "Viezh Robert",
+    country: "Warsaw, Poland",
+    score: 4.5,
+    message: "“Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best.”",
+  },
+  {
+    index: 2,
+    avatarSrc: secondAvatar,
+    name: "Yessica Christy",
+    country: "Shanxi, China",
+    score: 4.5,
+    message: "“I like it because I like to travel far and still can connect with high speed.”",
+  },
+  {
+    index: 3,
+    avatarSrc: thirdAvatar,
+    name: "Kim Young Jou",
+    country: "Seoul, South Korea",
+    score: 4.5,
+    message: "“This is very unusual for my business that currently requires a virtual private network that has high security.”"
+  }
+]
+
+
+
+
 
 export default function Testimonials() {
   return (
@@ -17,35 +52,7 @@ export default function Testimonials() {
           pleasure when using this crazy feature.
         </p>
       </div>
-      <div className="pl-20 flex flex-row justify-between space-x-10">
-        <div>
-            <CustomCard
-            avatarSrc={firstAvatar}
-            name="Viezh Robert"
-            country="Warsaw, Poland"
-            score={4.5}
-            message="“Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best.”"
-            />
-        </div>
-        <div>
-            <CustomCard
-            avatarSrc={secondAvatar}
-            name="Yessica Christy"
-            country="Shanxi, China"
-            score={4.5}
-            message="“I like it because I like to travel far and still can connect with high speed.”"
-            />
-        </div>
-        <div>
-            <CustomCard
-            avatarSrc={thirdAvatar}
-            name="Kim Young Jou"
-            country="Seoul, South Korea"
-            score={4.5}
-            message="“This is very unusual for my business that currently requires a virtual private network that has high security.”"
-            />
-        </div>
-      </div>
+      <Carousel cards={cards} />
     </div>
   );
 }

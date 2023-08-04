@@ -14,6 +14,7 @@ type CustomCardTypes = {
   country: string;
   score: number;
   message: string;
+  isActive: boolean;
 };
 
 const CustomCard: React.FC<CustomCardTypes> = ({
@@ -22,9 +23,10 @@ const CustomCard: React.FC<CustomCardTypes> = ({
   country,
   score,
   message,
+  isActive,
 }) => {
   return (
-    <Card className="w-96 h-56">
+    <Card className={`w-96 h-56 ${isActive ? "activeCard" : ""} border-2`}>
       <CardHeader className="flex flex-row">
         <Image
           src={avatarSrc}
