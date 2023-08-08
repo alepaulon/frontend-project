@@ -8,7 +8,7 @@ type PlanCardTypes = {
     hideFeature5?: boolean;
     hideFeature6?: boolean;
     price: string | number;
-    isActive: boolean;
+    isActive?: boolean;
 }
 
 
