@@ -31,7 +31,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-row space-x-10">
+      <div className="flex flex-row space-x-10 justify-center">
         {cards.map((card, index) => (
           <CustomCard
             key={index}
@@ -45,7 +45,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
         ))}
       </div>
       <div className="relative mt-10">
-        <div className="flex absolute bottom-0 left-0">
+        <div className="flex absolute bottom-0 left-0 ml-3">
           {cards.map((_, index) => (
             <span
               key={index}
@@ -57,7 +57,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
             />
           ))}
         </div>
-        <div className="flex space-x-4 mr-8 justify-end">
+        <div className="flex space-x-4 mr-5 justify-end">
           <button
             onClick={prevSlide}
             className="bg-[#FFFFFF] rounded-full border-2 border-[#F53838] p-3"
