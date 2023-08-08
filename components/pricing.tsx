@@ -19,7 +19,7 @@ export default function Pricing() {
       <div className="flex flex-row justify-center space-x-16 min-h-[820px] ">
         <PlanCard plan={"Free Plan"} price={"Free"} hideFeature5 hideFeature6 />
         <PlanCard plan={"Standard Plan"} price={"$9 / mo"} hideFeature6 />
-        <PlanCard plan={"Premium Plan"} price={"$12 / mo"} />
+        <PlanCard plan={"Premium Plan"} price={"$12 / mo"} isActive />
       </div>
     </div>
   );

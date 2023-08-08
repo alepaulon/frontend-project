@@ -57,7 +57,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
             />
           ))}
         </div>
-        <div className="flex space-x-4 mr-5 justify-end">
+        <div className="flex space-x-4 mr-4 justify-end">
           <button
             onClick={prevSlide}
             className="bg-[#FFFFFF] rounded-full border-2 border-[#F53838] p-3"
