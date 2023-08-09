@@ -12,9 +12,9 @@ export default function Form() {
   });
 
   return (
-    <div className="flex justify-center bg-[#F8F8F8] p-20">
-      <div className="flex max-w-full flex-row justify-center rounded-xl bg-white">
-        <div className="flex flex-col px-16 py-10">
+    <div className="flex justify-center bg-[#F8F8F8]">
+      <div className="bg-white px-40 flex flex-row justify-between rounded-xl ">
+        <div className="flex flex-col py-10">
           <h2 className="max-w-md text-4xl/normal font-semibold">
             Subscribe Now To Get Special Features!
           </h2>

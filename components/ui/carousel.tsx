@@ -30,7 +30,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col pb-10">
       <div className="flex flex-row justify-center space-x-10">
         {cards.map((card, index) => (
           <CustomCard
