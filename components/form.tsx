@@ -27,6 +27,7 @@ export default function Form() {
             e.preventDefault();
             console.log(credentials.email);
             console.log(credentials.name);
+            console.log(credentials.lastName);
           }}
           className="flex flex-col px-16 py-10 space-y-3 justify-between"
         >
