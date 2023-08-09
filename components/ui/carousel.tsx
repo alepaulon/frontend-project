@@ -21,7 +21,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
 
   const prevSlide = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + cards.length) % cards.length
+      (prevIndex) => (prevIndex - 1 + cards.length) % cards.length,
     );
   };
 
@@ -31,7 +31,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-row space-x-10 justify-center">
+      <div className="flex flex-row justify-center space-x-10">
         {cards.map((card, index) => (
           <CustomCard
             key={index}
@@ -45,7 +45,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
         ))}
       </div>
       <div className="relative mt-10">
-        <div className="flex absolute bottom-0 left-0 ml-3">
+        <div className="absolute bottom-0 left-0 ml-3 flex">
           {cards.map((_, index) => (
             <span
               key={index}
@@ -57,10 +57,10 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
             />
           ))}
         </div>
-        <div className="flex space-x-4 mr-4 justify-end">
+        <div className="mr-4 flex justify-end space-x-4">
           <button
             onClick={prevSlide}
-            className="bg-[#FFFFFF] rounded-full border-2 border-[#F53838] p-3"
+            className="rounded-full border-2 border-[#F53838] bg-[#FFFFFF] p-3"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="#F53838"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 stroke-linecap="round"
@@ -79,7 +79,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
           </button>
           <button
             onClick={nextSlide}
-            className="bg-[#F53838] rounded-full border-2 border-[#F53838] p-3"
+            className="rounded-full border-2 border-[#F53838] bg-[#F53838] p-3"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="#FFFFFF"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 stroke-linecap="round"

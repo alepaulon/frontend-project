@@ -1,12 +1,10 @@
 "use client";
 
 import React from "react";
-import { CustomCard } from "@/components/ui/customcard";
 import firstAvatar from "@/public/icons/carousel/1.png";
 import secondAvatar from "@/public/icons/carousel/2.png";
 import thirdAvatar from "@/public/icons/carousel/3.png";
 import Carousel from "./ui/carousel";
-import { StaticImageData } from "next/image";
 
 
 const cards = [
@@ -16,7 +14,8 @@ const cards = [
     name: "Viezh Robert",
     country: "Warsaw, Poland",
     score: 4.5,
-    message: "“Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best.”",
+    message:
+      "“Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best.”",
   },
   {
     index: 2,
@@ -24,7 +23,8 @@ const cards = [
     name: "Yessica Christy",
     country: "Shanxi, China",
     score: 4.5,
-    message: "“I like it because I like to travel far and still can connect with high speed.”",
+    message:
+      "“I like it because I like to travel far and still can connect with high speed.”",
   },
   {
     index: 3,
@@ -32,19 +32,16 @@ const cards = [
     name: "Kim Young Jou",
     country: "Seoul, South Korea",
     score: 4.5,
-    message: "“This is very unusual for my business that currently requires a virtual private network that has high security.”"
-  }
-]
-
-
-
-
+    message:
+      "“This is very unusual for my business that currently requires a virtual private network that has high security.”",
+  },
+];
 
 export default function Testimonials() {
   return (
-    <div className="py-10 px-32 bg-[#F8F8F8]">
-      <div className="flex flex-col items-center mt-8 mb-24">
-        <h1 className="font-semibold text-4xl/normal max-w-md text-center">
+    <div className="bg-[#F8F8F8] px-32 py-10">
+      <div className="mb-24 mt-8 flex flex-col items-center">
+        <h1 className="max-w-md text-center text-4xl/normal font-semibold">
           Trusted by Thousands of Happy Customers
         </h1>
         <p className="mt-6 max-w-lg text-center leading-8">

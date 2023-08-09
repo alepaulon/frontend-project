@@ -1,32 +1,31 @@
-import React from 'react'
-import Image from 'next/image'
-import features_img from '@/public/secondimg.png'
-
+import React from "react";
+import Image from "next/image";
+import features_img from "@/public/secondimg.png";
 
 export default function Features() {
   return (
-    <div className="flex flex-row justify-between my-10 mx-32">
+    <div className="mx-32 my-10 flex flex-row justify-between">
       <Image
         src={features_img}
         alt="Stock image about features of LaslesVPN"
         height={350}
         width={500}
       />
-      <div className="flex flex-col items-start max-w-xl pt-8">
-        <h2 className="font-semibold text-4xl/normal max-w-sm">
+      <div className="flex max-w-xl flex-col items-start pt-8">
+        <h2 className="max-w-sm text-4xl/normal font-semibold">
           We Provide Many Features You Can Use
         </h2>
-        <p className="text-base mt-6 mb-6 max-w-md">
+        <p className="mb-6 mt-6 max-w-md text-base">
           You can explore the features that we provide with fun and have their
           own functions each feature.
         </p>
         <div>
-          <div className='flex flex-row p-3 pl-0'>
+          <div className="flex flex-row p-3 pl-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="#2FAB73"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 fill-rule="evenodd"
@@ -34,14 +33,14 @@ export default function Features() {
                 clip-rule="evenodd"
               />
             </svg>
-            <p className='pl-3'>Powerful online protection.</p>
+            <p className="pl-3">Powerful online protection.</p>
           </div>
-          <div className='flex flex-row p-3 pl-0'>
+          <div className="flex flex-row p-3 pl-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="#2FAB73"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 fill-rule="evenodd"
@@ -49,14 +48,14 @@ export default function Features() {
                 clip-rule="evenodd"
               />
             </svg>
-            <p className='pl-3'>Internet without borders.</p>
+            <p className="pl-3">Internet without borders.</p>
           </div>
-          <div className='flex flex-row p-3 pl-0'>
+          <div className="flex flex-row p-3 pl-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="#2FAB73"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 fill-rule="evenodd"
@@ -64,14 +63,14 @@ export default function Features() {
                 clip-rule="evenodd"
               />
             </svg>
-            <p className='pl-3'>Supercharged VPN</p>
+            <p className="pl-3">Supercharged VPN</p>
           </div>
-          <div className='flex flex-row p-3 pl-0'>
+          <div className="flex flex-row p-3 pl-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="#2FAB73"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 fill-rule="evenodd"
@@ -79,7 +78,7 @@ export default function Features() {
                 clip-rule="evenodd"
               />
             </svg>
-            <p className='pl-3'>No specific time limits.</p>
+            <p className="pl-3">No specific time limits.</p>
           </div>
         </div>
       </div>

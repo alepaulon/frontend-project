@@ -3,23 +3,21 @@
 @tailwind utilities;
 
 .activeCard {
-    border-color: #F53838;
+  border-color: #f53838;
 }
 
 .dot {
-    width: 15px;
-    height: 15px;
-    background-color: #DDE0E4;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 5px;
-    cursor: pointer;
-  }
-  
-  
+  width: 15px;
+  height: 15px;
+  background-color: #dde0e4;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
 .dot.active {
-    background-color: #F53838;
-    border-radius: 9999px;
-    width: 40px;
-  }
-  
+  background-color: #f53838;
+  border-radius: 9999px;
+  width: 40px;
+}

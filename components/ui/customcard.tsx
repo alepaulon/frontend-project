@@ -26,24 +26,24 @@ const CustomCard: React.FC<CustomCardTypes> = ({
   isActive,
 }) => {
   return (
-    <Card className={`w-96 h-56 ${isActive ? "activeCard" : ""} border-2`}>
-      <CardHeader className="flex flex-row relative">
+    <Card className={`h-56 w-96 ${isActive ? "activeCard" : ""} border-2`}>
+      <CardHeader className="relative flex flex-row">
         <Image
           src={avatarSrc}
           alt="Avatar"
-          className="w-10 h-10 rounded-full object-cover"
+          className="h-10 w-10 rounded-full object-cover"
         />
-        <div className="flex flex-col ml-4">
-            <CardTitle className="min-w-max">{name}</CardTitle>
-            <CardDescription>{country}</CardDescription>
+        <div className="ml-4 flex flex-col">
+          <CardTitle className="min-w-max">{name}</CardTitle>
+          <CardDescription>{country}</CardDescription>
         </div>
-        <div className="flex flex-row absolute top-0 right-0 pt-6 pr-6">
+        <div className="absolute right-0 top-0 flex flex-row pr-6 pt-6">
           <p>{score}</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="#FEA250"
-            className="w-4 h-4 mt-1 ml-1"
+            className="ml-1 mt-1 h-4 w-4"
           >
             <path
               fill-rule="evenodd"
