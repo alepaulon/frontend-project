@@ -13,9 +13,9 @@ export default function Form() {
 
   return (
     <div className="flex justify-center bg-[#F8F8F8]">
-      <div className="bg-white px-40 flex flex-row justify-between rounded-xl ">
-        <div className="flex flex-col py-10">
-          <h2 className="max-w-md text-4xl/normal font-semibold">
+      <div className="flex flex-col rounded-xl bg-white lg:flex-row lg:justify-between lg:px-40 lg:py-4">
+        <div className="flex flex-col py-10 text-center lg:text-start">
+          <h2 className="px-10 text-2xl font-semibold lg:max-w-xl lg:px-0 lg:text-4xl/normal">
             Subscribe Now To Get Special Features!
           </h2>
           <p className="mt-6 max-w-lg leading-8">
@@ -29,12 +29,12 @@ export default function Form() {
             console.log(credentials.name);
             console.log(credentials.lastName);
           }}
-          className="flex flex-col px-16 py-10 space-y-3 justify-between"
+          className="flex flex-col justify-between space-y-3 px-6 pb-10 pt-4 lg:px-16 lg:py-10"
         >
           <div className="flex flex-row justify-between">
             <p className="font-semibold">Name</p>
             <input
-            className="bg-[#F8F8F8] rounded-sm border border-black"
+              className="w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
               type="text"
               value={credentials.name}
               onChange={(event) => {
@@ -45,7 +45,7 @@ export default function Form() {
           <div className="flex flex-row justify-between">
             <p className="font-semibold">Last Name</p>
             <input
-            className="bg-[#F8F8F8] rounded-sm border border-black"
+              className="w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
               type="text"
               value={credentials.lastName}
               onChange={(event) => {
@@ -59,7 +59,7 @@ export default function Form() {
           <div className="flex flex-row justify-between space-x-5">
             <p className="font-semibold">Contact Email</p>
             <input
-            className="bg-[#F8F8F8] rounded-sm border border-black mb-6"
+              className="mb-6 w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
               type="email"
               value={credentials.email}
               onChange={(event) => {
@@ -67,7 +67,7 @@ export default function Form() {
               }}
             />
           </div>
-          <Button className="w-56 h-12 flex self-end" variant={"filled_red"}>
+          <Button className="flex h-12 w-56 self-end" variant={"filled_red"}>
             Subscribe Now
           </Button>
         </form>
