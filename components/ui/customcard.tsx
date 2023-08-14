@@ -26,7 +26,11 @@ const CustomCard: React.FC<CustomCardTypes> = ({
   isActive,
 }) => {
   return (
-    <Card className={`h-56 w-96 ${isActive ? "activeCard" : ""} border-2`}>
+    <Card
+      className={`mx-4 mt-6 ${
+        isActive ? "activeCard" : ""
+      } h-[250px] w-[300px] border-2 md:w-[400px]`}
+    >
       <CardHeader className="relative flex flex-row">
         <Image
           src={avatarSrc}

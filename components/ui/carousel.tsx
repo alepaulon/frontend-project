@@ -21,7 +21,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
 
   const prevSlide = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + cards.length) % cards.length,
+      (prevIndex) => (prevIndex - 1 + cards.length) % cards.length
     );
   };
 
@@ -31,21 +31,33 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
 
   return (
     <div className="flex flex-col pb-10">
-      <div className="flex flex-row justify-center space-x-10">
+      <div className="relative flex items-center justify-center">
         {cards.map((card, index) => (
-          <CustomCard
+          <div
             key={index}
-            avatarSrc={card.avatarSrc}
-            name={card.name}
-            country={card.country}
-            score={card.score}
-            message={card.message}
-            isActive={index === currentIndex}
-          />
+            className={`${
+              index === currentIndex ||
+              (index === (currentIndex + 1) % cards.length &&
+                window.innerWidth >= 1024)
+                ? "block"
+                : "hidden"
+            } transform ${
+              index === currentIndex ? "translate-x-0" : "translate-x-full"
+            } absolute transition-transform duration-300`}
+          >
+            <CustomCard
+              avatarSrc={card.avatarSrc}
+              name={card.name}
+              country={card.country}
+              score={card.score}
+              message={card.message}
+              isActive={index === currentIndex}
+            />
+          </div>
         ))}
       </div>
-      <div className="relative mt-10">
-        <div className="absolute bottom-0 left-0 ml-3 flex">
+      <div className="relative pt-28">
+        <div className="absolute bottom-4 right-20 ml-3 flex md:left-0">
           {cards.map((_, index) => (
             <span
               key={index}
@@ -57,7 +69,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
             />
           ))}
         </div>
-        <div className="mr-4 flex justify-end space-x-4">
+        <div className="mt-10 flex space-x-4 pl-16 md:justify-end">
           <button
             onClick={prevSlide}
             className="rounded-full border-2 border-[#F53838] bg-[#FFFFFF] p-3"
