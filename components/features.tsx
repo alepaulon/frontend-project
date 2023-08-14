@@ -4,23 +4,22 @@ import features_img from "@/public/secondimg.png";
 
 export default function Features() {
   return (
-    <div className="mx-32 my-10 flex flex-row justify-between">
+    <div className="flex flex-col items-center lg:mx-32 lg:my-10 lg:flex-row lg:justify-between">
       <Image
         src={features_img}
         alt="Stock image about features of LaslesVPN"
-        height={350}
-        width={500}
+        className="w-fit p-10 lg:w-[500px] xl:w-[600px] "
       />
-      <div className="flex max-w-xl flex-col items-start pt-8">
-        <h2 className="max-w-sm text-4xl/normal font-semibold">
+      <div className="flex flex-col space-y-2 text-center lg:max-w-xl lg:items-start lg:pt-8 lg:text-start">
+        <h2 className="text-2xl/normal font-semibold lg:max-w-sm lg:text-4xl/normal">
           We Provide Many Features You Can Use
         </h2>
-        <p className="mb-6 mt-6 max-w-md text-base">
+        <p className="text-base lg:mb-6 lg:mt-6 lg:max-w-md">
           You can explore the features that we provide with fun and have their
           own functions each feature.
         </p>
-        <div>
-          <div className="flex flex-row p-3 pl-0">
+        <div className="flex flex-col items-center space-y-4 p-4 lg:items-start">
+          <div className="flex lg:flex-row lg:p-3 lg:pl-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -33,9 +32,9 @@ export default function Features() {
                 clip-rule="evenodd"
               />
             </svg>
-            <p className="pl-3">Powerful online protection.</p>
+            <p className="lg:pl-3">Powerful online protection.</p>
           </div>
-          <div className="flex flex-row p-3 pl-0">
+          <div className="flex lg:flex-row lg:p-3 lg:pl-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -48,9 +47,9 @@ export default function Features() {
                 clip-rule="evenodd"
               />
             </svg>
-            <p className="pl-3">Internet without borders.</p>
+            <p className="lg:pl-3">Internet without borders.</p>
           </div>
-          <div className="flex flex-row p-3 pl-0">
+          <div className="flex lg:flex-row lg:p-3 lg:pl-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -63,9 +62,9 @@ export default function Features() {
                 clip-rule="evenodd"
               />
             </svg>
-            <p className="pl-3">Supercharged VPN</p>
+            <p className="lg:pl-3">Supercharged VPN.</p>
           </div>
-          <div className="flex flex-row p-3 pl-0">
+          <div className="flex lg:flex-row lg:p-3 lg:pl-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -78,7 +77,7 @@ export default function Features() {
                 clip-rule="evenodd"
               />
             </svg>
-            <p className="pl-3">No specific time limits.</p>
+            <p className="lg:pl-3">No specific time limits.</p>
           </div>
         </div>
       </div>
