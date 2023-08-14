@@ -20,7 +20,7 @@ const PlanCard: React.FC<PlanCardTypes> = ({
 }) => {
   return (
     <div
-      className={`rounded-xl border-2 bg-white ${
+      className={`h-[820px] rounded-xl border-2 bg-white ${
         isActive ? "border-[#F53838]" : "border-[#DDDDDD]"
       } flex flex-col items-center p-16`}
     >
