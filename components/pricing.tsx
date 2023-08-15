@@ -1,5 +1,5 @@
 import React from "react";
-import { PlanCard } from "./ui/plancard";
+import { Subscription } from "./ui/plancard";
 
 export default function Pricing() {
   return (
@@ -14,9 +14,7 @@ export default function Pricing() {
         </p>
       </div>
       <div className="flex min-h-[820px] min-w-[300px] flex-col items-center justify-center space-y-3 md:flex-row md:flex-wrap md:gap-x-2 md:gap-y-2 lg:flex-nowrap lg:space-x-2 lg:space-y-0 xl:space-x-16">
-        <PlanCard plan={"Free Plan"} price={"Free"} hideFeature5 hideFeature6 />
-        <PlanCard plan={"Standard Plan"} price={"$9 / mo"} hideFeature6 />
-        <PlanCard plan={"Premium Plan"} price={"$12 / mo"} isActive />
+        <Subscription />
       </div>
     </div>
   );

@@ -3,13 +3,22 @@
 import React from "react";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import { BASE_URL } from "@/app/page";
 
 export default function Form() {
-  const [credentials, setCredentials] = useState({
+  const [data, setData] = useState({
     email: "",
     name: "",
     lastName: "",
   });
+
+  const handleFetch = () => {
+    fetch(`${BASE_URL}/api/send-email`),
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+      };
+  };
 
   return (
     <div className="flex justify-center bg-[#F8F8F8]">
@@ -25,9 +34,10 @@ export default function Form() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            console.log(credentials.email);
-            console.log(credentials.name);
-            console.log(credentials.lastName);
+            handleFetch;
+            console.log(data.email);
+            console.log(data.name);
+            console.log(data.lastName);
           }}
           className="flex flex-col justify-between space-y-3 px-6 pb-10 pt-4 lg:px-16 lg:py-10"
         >
@@ -36,9 +46,9 @@ export default function Form() {
             <input
               className="w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
               type="text"
-              value={credentials.name}
+              value={data.name}
               onChange={(event) => {
-                setCredentials({ ...credentials, name: event.target.value });
+                setData({ ...data, name: event.target.value });
               }}
             />
           </div>
@@ -47,10 +57,10 @@ export default function Form() {
             <input
               className="w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
               type="text"
-              value={credentials.lastName}
+              value={data.lastName}
               onChange={(event) => {
-                setCredentials({
-                  ...credentials,
+                setData({
+                  ...data,
                   lastName: event.target.value,
                 });
               }}
@@ -61,13 +71,17 @@ export default function Form() {
             <input
               className="mb-6 w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
               type="email"
-              value={credentials.email}
+              value={data.email}
               onChange={(event) => {
-                setCredentials({ ...credentials, email: event.target.value });
+                setData({ ...data, email: event.target.value });
               }}
             />
           </div>
-          <Button className="flex h-12 w-56 self-end" variant={"filled_red"}>
+          <Button
+            type="submit"
+            className="flex h-12 w-56 self-end"
+            variant={"filled_red"}
+          >
             Subscribe Now
           </Button>
         </form>
