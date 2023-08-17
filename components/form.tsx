@@ -13,11 +13,10 @@ export default function Form() {
   });
 
   const handleFetch = () => {
-    fetch(`${BASE_URL}/api/send-email`),
-      {
-        method: "POST",
-        body: JSON.stringify(data),
-      };
+    fetch(`${BASE_URL}/api/send-email`, {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
   };
 
   return (
@@ -34,7 +33,7 @@ export default function Form() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            handleFetch;
+            handleFetch();
             console.log(data.email);
             console.log(data.name);
             console.log(data.lastName);
