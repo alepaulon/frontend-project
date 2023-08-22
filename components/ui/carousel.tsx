@@ -4,11 +4,42 @@ import React, { useState, useEffect } from "react";
 import { BASE_URL } from "@/app/page";
 import { CustomCard, CustomCardTypes } from "./customcard";
 
+const test = "-translate-x-[100%]";
+const test1 = "-translate-x-[200%]";
+const test2 = "-translate-x-[300%]";
+const test3 = "-translate-x-[400%]";
+const test4 = "-translate-x-[500%]";
+const test5 = "translate-x-[33.333333333333336%]";
+const test6 = "translate-x-[66.666667%]";
+const test7 = "-translate-x-[133%]";
+const test8 = "-translate-x-[166%]";
+
 const Carousel = () => {
   const [testimonial, setTestimonial] = useState<CustomCardTypes[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>();
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const cardPerSlide = {
+    mobile: 1,
+    desktop: 3,
+  };
+
+  const isMobile = window.innerWidth < 768;
+
+  const transformValue = isMobile
+    ? `${currentIndex * (100 / cardPerSlide.mobile)}`
+    : currentIndex === 0
+    ? "0"
+    : currentIndex === 1
+    ? "33.333333333333336"
+    : currentIndex === 2
+    ? "66.66666666666667"
+    : currentIndex === 3
+    ? "100"
+    : currentIndex === 4
+    ? "133.33333333333334"
+    : "0";
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonial.length);
@@ -47,23 +78,19 @@ const Carousel = () => {
   if (error) {
     return <p>{error}</p>;
   }
+  console.log(currentIndex * (100 / cardPerSlide.desktop));
 
   return (
     <div className="flex flex-col pb-10">
       <div className="relative overflow-hidden">
         <div
-          className="flex transition-transform duration-300"
+          className={`flex transition-transform duration-300 -translate-x-[${transformValue}%] }`}
           style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-            width: `${testimonial.length * 100}%`,
+            width: `${testimonial.length * (100 / cardPerSlide.desktop)}%`,
           }}
         >
           {testimonial.map((card, index) => (
-            <div
-              key={index}
-              className="w-full flex-none"
-              style={{ width: "100%" }}
-            >
+            <div key={index} className={`w-full flex-none md:w-1/3 xl:w-1/6`}>
               <CustomCard
                 avatar={card.avatar}
                 fullName={card.fullName}
