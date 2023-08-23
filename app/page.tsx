@@ -8,7 +8,7 @@ import Testimonials from "@/components/testimonials";
 import Form from "@/components/form";
 import Footer from "@/components/footer";
 
-export const BASE_URL =
+export const BASE_URL: string =
   "https://6xrb5goi1l.execute-api.us-east-1.amazonaws.com";
 
 export default function Home() {
@@ -26,5 +26,3 @@ export default function Home() {
     </>
   );
 }
-
-//Formulario del final parecido al Form de vite-project
