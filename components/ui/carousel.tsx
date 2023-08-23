@@ -20,15 +20,14 @@ const Carousel = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   const cardPerSlide = {
     mobile: 1,
     tablet: 3,
     desktop: 6,
   };
-
-  const isMobile = window.innerWidth < 768;
-  const isDesktop = window.innerWidth >= 1280;
 
   let transformValue: number | string = 0;
 
@@ -77,6 +76,9 @@ const Carousel = () => {
   };
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    setIsDesktop(window.innerWidth >= 1280);
+
     setLoading(true);
     fetch(`${BASE_URL}/api/testimonial`)
       .then((response) => {
