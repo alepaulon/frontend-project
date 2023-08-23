@@ -4,15 +4,14 @@ import React, { useState, useEffect } from "react";
 import { BASE_URL } from "@/app/page";
 import { CustomCard, CustomCardTypes } from "./customcard";
 
-const test = "-translate-x-[100%]";
-const test1 = "-translate-x-[200%]";
-const test2 = "-translate-x-[300%]";
-const test3 = "-translate-x-[400%]";
-const test4 = "-translate-x-[500%]";
-const test5 = "translate-x-[33.333333333333336%]";
-const test6 = "translate-x-[66.666667%]";
-const test7 = "-translate-x-[133%]";
-const test8 = "-translate-x-[166%]";
+const malditotailwind = "-translate-x-[100%]";
+const malditotailwind1 = "-translate-x-[200%]";
+const malditotailwind2 = "-translate-x-[300%]";
+const malditotailwind3 = "-translate-x-[400%]";
+const malditotailwind4 = "-translate-x-[500%]";
+const malditotailwind5 = "-translate-x-[33.333333333333336%]";
+const malditotailwind6 = "-translate-x-[66.66666666666667%]";
+const malditotailwind7 = "-translate-x-[133.33333333333334%]";
 
 const Carousel = () => {
   const [testimonial, setTestimonial] = useState<CustomCardTypes[]>([]);
@@ -22,7 +21,8 @@ const Carousel = () => {
 
   const cardPerSlide = {
     mobile: 1,
-    desktop: 3,
+    tablet: 3,
+    desktop: 6,
   };
 
   const isMobile = window.innerWidth < 768;
@@ -78,7 +78,7 @@ const Carousel = () => {
   if (error) {
     return <p>{error}</p>;
   }
-  console.log(currentIndex * (100 / cardPerSlide.desktop));
+  console.log(currentIndex * (100 / 6));
 
   return (
     <div className="flex flex-col pb-10">
@@ -86,7 +86,7 @@ const Carousel = () => {
         <div
           className={`flex transition-transform duration-300 -translate-x-[${transformValue}%] }`}
           style={{
-            width: `${testimonial.length * (100 / cardPerSlide.desktop)}%`,
+            width: `${testimonial.length * (100 / cardPerSlide.tablet)}%`,
           }}
         >
           {testimonial.map((card, index) => (
@@ -96,6 +96,7 @@ const Carousel = () => {
                 fullName={card.fullName}
                 country={card.country}
                 testimonial={card.testimonial}
+                isActive={index === currentIndex}
               />
             </div>
           ))}

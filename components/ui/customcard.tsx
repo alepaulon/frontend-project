@@ -11,6 +11,7 @@ export type CustomCardTypes = {
   fullName: string;
   country: string;
   testimonial: string;
+  isActive?: boolean;
 };
 
 const country: { [key: number]: string } = {
@@ -32,10 +33,15 @@ const CustomCard: React.FC<CustomCardTypes> = ({
   fullName,
   country,
   testimonial,
+  isActive,
 }) => {
   return (
     <div className="flex flex-row">
-      <Card className="mx-4 mt-6 h-[250px] w-[300px] border-2 md:w-[400px]">
+      <Card
+        className={`mx-4 mt-6 h-[250px] w-[300px] border-2 md:w-[400px] ${
+          isActive ? "border-[#F53838]" : ""
+        }`}
+      >
         <CardHeader className="relative flex flex-row">
           <img
             key={avatar}
