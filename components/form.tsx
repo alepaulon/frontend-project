@@ -52,27 +52,33 @@ export default function Form() {
         >
           <div className="flex flex-row justify-between">
             <p className="font-semibold">Name</p>
-            <input
-              className="w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
-              {...register("name")}
-            />
-            <p>{errors.name?.message}</p>
+            <div className="flex flex-col">
+              <input
+                className="w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
+                {...register("name")}
+              />
+              <p className="mt-2">{errors.name?.message}</p>
+            </div>
           </div>
           <div className="flex flex-row justify-between">
             <p className="font-semibold">Last Name</p>
-            <input
-              className="w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
-              {...register("lastName")}
-            />
-            <p>{errors.lastName?.message}</p>
+            <div className="flex flex-col">
+              <input
+                className="w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
+                {...register("lastName")}
+              />
+              <p className="mt-2">{errors.lastName?.message}</p>
+            </div>
           </div>
           <div className="flex flex-row justify-between space-x-5">
             <p className="font-semibold">Contact Email</p>
-            <input
-              className="mb-6 w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
-              {...register("email")}
-            />
-            <p>{errors.email?.message}</p>
+            <div className="flex flex-col">
+              <input
+                className="mb-6 w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
+                {...register("email")}
+              />
+              <p className="mt-2">{errors.email?.message}</p>
+            </div>
           </div>
           <Button
             type="submit"
