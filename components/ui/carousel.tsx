@@ -84,7 +84,7 @@ const Carousel = () => {
     <div className="flex flex-col pb-10">
       <div className="relative overflow-hidden">
         <div
-          className={`flex transition-transform duration-300 -translate-x-[${transformValue}%] }`}
+          className={`flex transition-transform duration-300 -translate-x-[${transformValue}%]`}
           style={{
             width: `${testimonial.length * (100 / cardPerSlide.tablet)}%`,
           }}
