@@ -12,6 +12,8 @@ const malditotailwind4 = "-translate-x-[500%]";
 const malditotailwind5 = "-translate-x-[33.333333333333336%]";
 const malditotailwind6 = "-translate-x-[66.66666666666667%]";
 const malditotailwind7 = "-translate-x-[133.33333333333334%]";
+const malditotailwind8 = "-translate-x-[16.666666666666668%]";
+const malditotailwind9 = "-translate-x-[50%]";
 
 const Carousel = () => {
   const [testimonial, setTestimonial] = useState<CustomCardTypes[]>([]);
@@ -26,20 +28,39 @@ const Carousel = () => {
   };
 
   const isMobile = window.innerWidth < 768;
+  const isDesktop = window.innerWidth >= 1280;
 
-  const transformValue = isMobile
-    ? `${currentIndex * (100 / cardPerSlide.mobile)}`
-    : currentIndex === 0
-    ? "0"
-    : currentIndex === 1
-    ? "33.333333333333336"
-    : currentIndex === 2
-    ? "66.66666666666667"
-    : currentIndex === 3
-    ? "100"
-    : currentIndex === 4
-    ? "133.33333333333334"
-    : "0";
+  let transformValue: number | string = 0;
+
+  if (isMobile) {
+    transformValue = `${currentIndex * (100 / cardPerSlide.mobile)}`;
+  } else if (isDesktop) {
+    transformValue =
+      currentIndex === 0
+        ? "0"
+        : currentIndex === 1
+        ? "16.666666666666668"
+        : currentIndex === 2
+        ? "33.333333333333336"
+        : currentIndex === 3
+        ? "50"
+        : currentIndex === 4
+        ? "66.66666666666667"
+        : "0";
+  } else {
+    transformValue =
+      currentIndex === 0
+        ? "0"
+        : currentIndex === 1
+        ? "33.333333333333336"
+        : currentIndex === 2
+        ? "66.66666666666667"
+        : currentIndex === 3
+        ? "100"
+        : currentIndex === 4
+        ? "133.33333333333334"
+        : "0";
+  }
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonial.length);
