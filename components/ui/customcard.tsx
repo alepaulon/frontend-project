@@ -14,20 +14,6 @@ export type CustomCardTypes = {
   isActive?: boolean;
 };
 
-const country: { [key: number]: string } = {
-  1: "Warsaw, Poland",
-  2: "Shanxi, China",
-  3: "Seoul, South Korea",
-  4: "Santa Fe, Argentina",
-  5: "Santiago, Chile",
-};
-
-function randomCountry(): string {
-  const k = Object.keys(country);
-  const numeroPais = k[Math.floor(Math.random() * k.length)];
-  return country[parseInt(numeroPais)];
-}
-
 const CustomCard: React.FC<CustomCardTypes> = ({
   avatar,
   fullName,
@@ -53,7 +39,7 @@ const CustomCard: React.FC<CustomCardTypes> = ({
             <CardTitle key={fullName} className="min-w-max">
               {fullName}
             </CardTitle>
-            <CardDescription> {randomCountry()} </CardDescription>
+            <CardDescription> {country} </CardDescription>
           </div>
           <div className="absolute right-0 top-0 flex flex-row pr-6 pt-6">
             <p>4.5</p>

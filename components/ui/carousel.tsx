@@ -15,6 +15,20 @@ const tw7 = "-translate-x-[133.33333333333334%]";
 const tw8 = "-translate-x-[16.666666666666668%]";
 const tw9 = "-translate-x-[50%]";
 
+const country: { [key: number]: string } = {
+  1: "Warsaw, Poland",
+  2: "Shanxi, China",
+  3: "Seoul, South Korea",
+  4: "Santa Fe, Argentina",
+  5: "Santiago, Chile",
+};
+
+function randomCountry(): string {
+  const k = Object.keys(country);
+  const numeroPais = k[Math.floor(Math.random() * k.length)];
+  return country[parseInt(numeroPais)];
+}
+
 const Carousel = () => {
   const [testimonial, setTestimonial] = useState<CustomCardTypes[]>([]);
   const [loading, setLoading] = useState(false);
@@ -83,7 +97,11 @@ const Carousel = () => {
     fetch(`${BASE_URL}/api/testimonial`)
       .then((response) => {
         response.json().then((result) => {
-          setTestimonial(result);
+          const testimonialsWithFixedCountries = result.map((card: any) => ({
+            ...card,
+            country: randomCountry(),
+          }));
+          setTestimonial(testimonialsWithFixedCountries);
         });
       })
       .catch((error) => {
