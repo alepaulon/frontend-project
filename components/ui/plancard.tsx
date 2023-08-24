@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "./button";
 import Image from "next/image";
 import plans from "@/public/plans.png";
-import { BASE_URL } from "@/app/page";
+import { BASE_URL } from "@/lib/utils";
 
 type PlanCardTypes = {
   title: string;

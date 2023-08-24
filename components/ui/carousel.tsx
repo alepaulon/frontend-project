@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { BASE_URL } from "@/app/page";
+import { BASE_URL } from "@/lib/utils";
 import { CustomCard, CustomCardTypes } from "./customcard";
 
 const tw = "-translate-x-[100%]";

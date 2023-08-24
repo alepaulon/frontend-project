@@ -8,9 +8,6 @@ import Testimonials from "@/components/testimonials";
 import Form from "@/components/form";
 import Footer from "@/components/footer";
 
-export const BASE_URL =
-  "https://6xrb5goi1l.execute-api.us-east-1.amazonaws.com";
-
 export default function Home() {
   return (
     <>
