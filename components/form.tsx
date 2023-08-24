@@ -11,19 +11,19 @@ const schema = yup
   .object({
     email: yup
       .string()
-      .email("Es necesario poner un mail válido")
-      .min(5, "Mínimo 5 caracteres")
-      .max(50, "Máximo 50 caracteres")
+      .email("Invalid email, enter a valid one")
+      .min(5, "Min 5 characters required")
+      .max(50, "Max 50 characters required")
       .required(),
     name: yup
       .string()
-      .min(5, "Mínimo 5 caracteres")
-      .max(20, "Máximo 20 caracteres")
+      .min(5, "Min 5 characters required")
+      .max(20, "Max 20 characters required")
       .required(),
     lastName: yup
       .string()
-      .min(5, "Mínimo 5 caracteres")
-      .max(20, "Máximo 20 caracteres")
+      .min(5, "Min 5 characters required")
+      .max(20, "Max 20 characters required")
       .required(),
   })
   .required();
@@ -46,7 +46,7 @@ export default function Form() {
 
   return (
     <div className="flex min-h-[600px] justify-center bg-[#F8F8F8]">
-      <div className="flex flex-col rounded-xl bg-white lg:flex-row lg:justify-between lg:px-40 lg:py-10 xl:min-w-[1100px] xl:space-x-36">
+      <div className="mb-20 flex flex-col rounded-xl bg-white lg:flex-row lg:justify-between lg:px-40 lg:py-10 xl:min-w-[1100px] xl:space-x-36">
         <div className="flex flex-col py-10 text-center lg:text-start xl:max-w-[200px]">
           <h2 className="px-10 text-2xl font-semibold lg:px-0 lg:text-4xl/normal">
             Subscribe Now To Get Special Features!
@@ -63,7 +63,10 @@ export default function Form() {
             <p className="py-2 font-semibold">Name</p>
             <div className="flex flex-col items-center">
               <input
-                className="w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
+                placeholder="Your name..."
+                className={`w-[150px] rounded-lg border ${
+                  errors.name ? "border-red-500" : "border-black"
+                } bg-[#F8F8F8] pl-2 placeholder:text-sm placeholder:font-thin placeholder:italic placeholder:text-slate-400 md:w-[180px]`}
                 {...register("name")}
               />
               <p className="mt-2 text-center italic">{errors.name?.message}</p>
@@ -73,7 +76,10 @@ export default function Form() {
             <p className="py-2 font-semibold">Last Name</p>
             <div className="flex flex-col items-center">
               <input
-                className="w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
+                placeholder="Your lastname..."
+                className={`w-[150px] rounded-lg border ${
+                  errors.lastName ? "border-red-500" : "border-black"
+                } bg-[#F8F8F8] pl-2 placeholder:text-sm placeholder:font-thin placeholder:italic placeholder:text-slate-400 md:w-[180px]`}
                 {...register("lastName")}
               />
               <p className="mt-2 text-center italic">
@@ -85,7 +91,10 @@ export default function Form() {
             <p className="py-2 font-semibold">Contact Email</p>
             <div className="flex flex-col items-center">
               <input
-                className="w-[150px] rounded-sm border border-black bg-[#F8F8F8] md:w-[180px]"
+                placeholder="example@mail.com..."
+                className={`w-[150px] rounded-lg border ${
+                  errors.email ? "border-red-500" : "border-black"
+                } bg-[#F8F8F8] pl-2 placeholder:text-sm placeholder:font-thin placeholder:italic placeholder:text-slate-400 md:w-[180px]`}
                 {...register("email")}
               />
               <p className="mt-2 text-center italic">{errors.email?.message}</p>
