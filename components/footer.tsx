@@ -7,7 +7,10 @@ import insta from "@/public/icons/instagram.png";
 
 export default function Footer() {
   return (
-    <div className="flex flex-col justify-between bg-[#F8F8F8] py-10 md:flex-row md:px-20 xl:pb-40">
+    <div
+      id="help"
+      className="flex flex-col justify-between bg-[#F8F8F8] py-10 md:flex-row md:px-20 xl:pb-40"
+    >
       <div className="max-w-xs px-6">
         <div className="flex flex-row items-center">
           <Image src={logo} alt="Logo from LaslesVPN" className="mr-2" />

@@ -4,16 +4,16 @@ import React, { useState, useEffect } from "react";
 import { BASE_URL } from "@/app/page";
 import { CustomCard, CustomCardTypes } from "./customcard";
 
-const malditotailwind = "-translate-x-[100%]";
-const malditotailwind1 = "-translate-x-[200%]";
-const malditotailwind2 = "-translate-x-[300%]";
-const malditotailwind3 = "-translate-x-[400%]";
-const malditotailwind4 = "-translate-x-[500%]";
-const malditotailwind5 = "-translate-x-[33.333333333333336%]";
-const malditotailwind6 = "-translate-x-[66.66666666666667%]";
-const malditotailwind7 = "-translate-x-[133.33333333333334%]";
-const malditotailwind8 = "-translate-x-[16.666666666666668%]";
-const malditotailwind9 = "-translate-x-[50%]";
+const tw = "-translate-x-[100%]";
+const tw1 = "-translate-x-[200%]";
+const tw2 = "-translate-x-[300%]";
+const tw3 = "-translate-x-[400%]";
+const tw4 = "-translate-x-[500%]";
+const tw5 = "-translate-x-[33.333333333333336%]";
+const tw6 = "-translate-x-[66.66666666666667%]";
+const tw7 = "-translate-x-[133.33333333333334%]";
+const tw8 = "-translate-x-[16.666666666666668%]";
+const tw9 = "-translate-x-[50%]";
 
 const Carousel = () => {
   const [testimonial, setTestimonial] = useState<CustomCardTypes[]>([]);
@@ -101,7 +101,6 @@ const Carousel = () => {
   if (error) {
     return <p>{error}</p>;
   }
-  console.log(currentIndex * (100 / 6));
 
   return (
     <div className="flex flex-col pb-10">

@@ -5,7 +5,7 @@ import Carousel from "./ui/carousel";
 
 export default function Testimonials() {
   return (
-    <div className="bg-[#F8F8F8] py-10 md:px-4 lg:px-32">
+    <div id="testimonials" className="bg-[#F8F8F8] py-10 md:px-4 lg:px-32">
       <div className="mb-24 mt-8 flex flex-col items-center">
         <h1 className="max-w-md text-center text-3xl/normal font-semibold lg:text-4xl/normal">
           Trusted by Thousands of Happy Customers

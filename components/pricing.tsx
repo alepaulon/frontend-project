@@ -3,7 +3,7 @@ import { Subscription } from "./ui/plancard";
 
 export default function Pricing() {
   return (
-    <div className="mt-10 bg-[#F8F8F8] px-3 py-10">
+    <div id="pricing" className="mt-10 bg-[#F8F8F8] px-3 py-10">
       <div className="mb-6 flex flex-col items-center text-center">
         <h2 className="max-w-sm text-4xl/normal font-semibold">
           Choose Your Plan

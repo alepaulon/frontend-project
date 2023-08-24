@@ -5,7 +5,10 @@ import get_started from "../public/firstimg.png";
 
 export default function GetStarted() {
   return (
-    <div className="mx-20 my-10 flex flex-col items-center lg:flex-row xl:mx-32 xl:mt-20 xl:flex-row xl:justify-between">
+    <div
+      id="about"
+      className="mx-20 my-10 flex flex-col items-center lg:flex-row xl:mx-32 xl:mt-20 xl:flex-row xl:justify-between"
+    >
       <div className="flex flex-col items-center space-y-6 text-center lg:items-start lg:space-y-2 lg:text-start xl:max-w-xl xl:flex-col">
         <h1 className="w-[280px] text-3xl font-semibold md:w-[500px] xl:w-[555px] xl:text-5xl/relaxed">
           Want anything to be easy with{" "}

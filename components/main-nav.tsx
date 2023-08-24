@@ -5,16 +5,20 @@ import Image from "next/image";
 import logo from "@/public/logo.png";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Nav() {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <div className="m-4 flex justify-between lg:mx-8 lg:flex-row xl:mx-24 xl:my-10">
-      <div className="flex flex-shrink-0 flex-row items-center lg:px-8">
+      <Link
+        href="/"
+        className="flex flex-shrink-0 flex-row items-center lg:px-8"
+      >
         <Image src={logo} alt="Logo from LaslesVPN" className="mr-2" />
         <h1 className="text-center text-xl font-bold">LaslesVPN</h1>
-      </div>
+      </Link>
       <div className="block lg:hidden">
         <button onClick={() => setOpenMenu(!openMenu)} className="self-start">
           <svg
@@ -58,21 +62,36 @@ export default function Nav() {
           </svg>
         </button>
         <div className="mt-4 flex flex-col pl-8 lg:mt-0 lg:flex-row xl:space-x-12">
-          <a href="/" className="mr-4 mt-4 block lg:mt-0 lg:inline-block">
+          <Link
+            href="#about"
+            className="mr-4 mt-4 block underline-offset-4 hover:underline lg:mt-0 lg:inline-block"
+          >
             About
-          </a>
-          <a href="/" className="mr-4 mt-4 block lg:mt-0 lg:inline-block">
+          </Link>
+          <Link
+            href="#features"
+            className="mr-4 mt-4 block underline-offset-4 hover:underline lg:mt-0 lg:inline-block"
+          >
             Features
-          </a>
-          <a href="/" className="mr-4 mt-4 block lg:mt-0 lg:inline-block">
+          </Link>
+          <Link
+            href="#pricing"
+            className="mr-4 mt-4 block underline-offset-4 hover:underline lg:mt-0 lg:inline-block"
+          >
             Pricing
-          </a>
-          <a href="/" className="mr-4 mt-4 block lg:mt-0 lg:inline-block">
+          </Link>
+          <Link
+            href="#testimonials"
+            className="mr-4 mt-4 block underline-offset-4 hover:underline lg:mt-0 lg:inline-block"
+          >
             Testimonials
-          </a>
-          <a href="/" className="mr-4 mt-4 block lg:mt-0 lg:inline-block">
+          </Link>
+          <Link
+            href="#help"
+            className="mr-4 mt-4 block underline-offset-4 hover:underline lg:mt-0 lg:inline-block"
+          >
             Help
-          </a>
+          </Link>
         </div>
         <div className="mt-8 flex justify-center lg:ml-20 lg:mt-0 lg:flex-row lg:space-x-4 lg:pt-0">
           <Button

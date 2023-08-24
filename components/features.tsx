@@ -4,7 +4,10 @@ import features_img from "@/public/secondimg.png";
 
 export default function Features() {
   return (
-    <div className="flex flex-col items-center lg:mx-32 lg:my-10 lg:flex-row lg:justify-between">
+    <div
+      id="features"
+      className="flex flex-col items-center lg:mx-32 lg:my-10 lg:flex-row lg:justify-between"
+    >
       <Image
         src={features_img}
         alt="Stock image about features of LaslesVPN"
