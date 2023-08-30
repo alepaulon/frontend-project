@@ -2,10 +2,10 @@
 
 import React from "react";
 import { Button } from "./ui/button";
-import { BASE_URL } from "@/lib/utils";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import usePostData from "@/hooks/use-post-data";
 
 const schema = yup
   .object({
@@ -17,12 +17,12 @@ const schema = yup
       .required(),
     name: yup
       .string()
-      .min(5, "Min 5 characters required")
+      .min(2, "Min 2 characters required")
       .max(20, "Max 20 characters required")
       .required(),
     lastName: yup
       .string()
-      .min(5, "Min 5 characters required")
+      .min(2, "Min 2 characters required")
       .max(20, "Max 20 characters required")
       .required(),
   })
@@ -37,11 +37,8 @@ export default function Form() {
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: FormData) => {
-    fetch(`${BASE_URL}/api/send-email`, {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
+  const onSubmit = async (data: FormData) => {
+    await usePostData(data);
   };
 
   return (
