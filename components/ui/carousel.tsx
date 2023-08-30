@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { BASE_URL } from "@/lib/utils";
 import { CustomCard, CustomCardTypes } from "./customcard";
+import useGetData from "@/hooks/use-get-data";
 
 const tw = "-translate-x-[100%]";
 const tw1 = "-translate-x-[200%]";
@@ -15,27 +15,11 @@ const tw7 = "-translate-x-[133.33333333333334%]";
 const tw8 = "-translate-x-[16.666666666666668%]";
 const tw9 = "-translate-x-[50%]";
 
-const country: { [key: number]: string } = {
-  1: "Warsaw, Poland",
-  2: "Shanxi, China",
-  3: "Seoul, South Korea",
-  4: "Santa Fe, Argentina",
-  5: "Santiago, Chile",
-};
-
-function randomCountry(): string {
-  const k = Object.keys(country);
-  const numeroPais = k[Math.floor(Math.random() * k.length)];
-  return country[parseInt(numeroPais)];
-}
-
 const Carousel = () => {
-  const [testimonial, setTestimonial] = useState<CustomCardTypes[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string>();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [countries, setCountries] = useState<string[]>([]);
 
   const cardPerSlide = {
     mobile: 1,
@@ -76,12 +60,16 @@ const Carousel = () => {
   }
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonial.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex + 1) % (testimonials?.length || 1)
+    );
   };
 
   const prevSlide = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + testimonial.length) % testimonial.length
+      (prevIndex) =>
+        (prevIndex - 1 + (testimonials?.length || 1)) %
+        (testimonials?.length || 1)
     );
   };
 
@@ -92,28 +80,26 @@ const Carousel = () => {
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
     setIsDesktop(window.innerWidth >= 1280);
-
-    setLoading(true);
-    fetch(`${BASE_URL}/api/testimonial`)
-      .then((response) => {
-        response.json().then((result) => {
-          const testimonialsWithFixedCountries = result.map((card: any) => ({
-            ...card,
-            country: randomCountry(),
-          }));
-          setTestimonial(testimonialsWithFixedCountries);
-        });
-      })
-      .catch((error) => {
-        setError(error.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    const fetchedCountries = [
+      "Warsaw, Poland",
+      "Shanxi, China",
+      "Seoul, South Korea",
+      "Santa Fe, Argentina",
+      "Santiago, Chile",
+    ];
+    setCountries(fetchedCountries);
   }, []);
 
+  const {
+    result: testimonials,
+    error,
+    loading,
+  } = useGetData<CustomCardTypes[]>({
+    endpoint: "testimonial",
+  });
+
   if (loading) {
-    return <p>Loading...</p>;
+    return <p>loading...</p>;
   }
 
   if (error) {
@@ -126,15 +112,19 @@ const Carousel = () => {
         <div
           className={`flex transition-transform duration-300 -translate-x-[${transformValue}%]`}
           style={{
-            width: `${testimonial.length * (100 / cardPerSlide.tablet)}%`,
+            width: `${
+              testimonials?.length
+                ? testimonials.length * (100 / cardPerSlide.tablet)
+                : 0
+            }%`,
           }}
         >
-          {testimonial.map((card, index) => (
+          {testimonials?.map((card, index) => (
             <div key={index} className={`w-full flex-none md:w-1/3 xl:w-1/6`}>
               <CustomCard
                 avatar={card.avatar}
                 fullName={card.fullName}
-                country={card.country}
+                country={countries[index]}
                 testimonial={card.testimonial}
                 isActive={index === currentIndex}
               />
@@ -144,7 +134,7 @@ const Carousel = () => {
       </div>
       <div className="relative pt-28">
         <div className="absolute bottom-4 ml-3 flex md:left-0 md:right-20">
-          {testimonial.map((_, index) => (
+          {testimonials?.map((_, index) => (
             <span
               key={index}
               className={`dot ${index === currentIndex ? "active" : ""}`}

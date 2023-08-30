@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import { Button } from "./button";
 import Image from "next/image";
 import plans from "@/public/plans.png";
-import { BASE_URL } from "@/lib/utils";
+import useGetData from "@/hooks/use-get-data";
 
 type PlanCardTypes = {
   title: string;
@@ -13,28 +12,16 @@ type PlanCardTypes = {
 };
 
 const Subscription = () => {
-  const [subscriptions, setSubcriptions] = useState<PlanCardTypes[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string>();
-
-  useEffect(() => {
-    setLoading(true);
-    fetch(`${BASE_URL}/api/subscription`)
-      .then((response) => {
-        response.json().then((result) => {
-          setSubcriptions(result);
-        });
-      })
-      .catch((error) => {
-        setError(error.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+  const {
+    result: subscriptions,
+    error,
+    loading,
+  } = useGetData<PlanCardTypes[]>({
+    endpoint: "subscription",
+  });
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p>loading...</p>;
   }
 
   if (error) {
@@ -43,7 +30,7 @@ const Subscription = () => {
 
   return (
     <div className="flex flex-col space-y-2 lg:flex-row lg:space-x-2 lg:space-y-0 xl:space-x-16">
-      {subscriptions.map((subscription) => (
+      {subscriptions?.map((subscription) => (
         <div
           className={`p-16 ${
             subscription.title === "Premium Plan"
