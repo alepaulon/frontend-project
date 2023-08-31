@@ -32,12 +32,8 @@ const Subscription = () => {
     <div className="flex flex-col space-y-2 lg:flex-row lg:space-x-2 lg:space-y-0 xl:space-x-16">
       {subscriptions?.map((subscription) => (
         <div
-          className={`p-16 ${
-            subscription.title === "Premium Plan"
-              ? "border-[#F53838]"
-              : "border-[#DDDDDD]"
-          } flex h-[860px] flex-col items-center rounded-xl
-              border-2 bg-white `}
+          className="flex h-[860px] flex-col items-center rounded-xl border-2 border-[#DDDDDD] bg-white
+              p-16 hover:border-[#F53838]"
         >
           <Image src={plans} alt="Pricing plans image" />
           <h4 className="m-10 text-lg font-bold" key={subscription.title}>
