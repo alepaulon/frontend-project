@@ -2,6 +2,7 @@ import { BASE_URL } from "@/lib/utils";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { toast } from "react-toastify";
 
 const usePostData = () => {
   const schema = yup
@@ -35,9 +36,18 @@ const usePostData = () => {
       data = await res.json();
       return data;
     } catch (error) {
-      console.error("Failed to POST data");
+      toast("Error sending data", {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: "error",
+      });
     } finally {
-      console.log("Success");
+      toast("Sent Succesfully!", {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: "success",
+      });
+      reset();
     }
   };
 
@@ -45,6 +55,7 @@ const usePostData = () => {
     register,
     handleSubmit: originalSubmitHandler,
     formState: { errors },
+    reset,
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });

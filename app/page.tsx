@@ -7,6 +7,8 @@ import Global from "@/components/global-nw";
 import Testimonials from "@/components/testimonials";
 import Form from "@/components/form";
 import Footer from "@/components/footer";
+import "react-toastify/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   return (
@@ -20,6 +22,7 @@ export default function Home() {
       <Testimonials />
       <Form />
       <Footer />
+      <ToastContainer />
     </>
   );
 }
