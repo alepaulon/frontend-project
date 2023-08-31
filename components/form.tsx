@@ -2,44 +2,10 @@
 
 import React from "react";
 import { Button } from "./ui/button";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import usePostData from "@/hooks/use-post-data";
 
-const schema = yup
-  .object({
-    email: yup
-      .string()
-      .email("Invalid email, enter a valid one")
-      .min(5, "Min 5 characters required")
-      .max(50, "Max 50 characters required")
-      .required(),
-    name: yup
-      .string()
-      .min(2, "Min 2 characters required")
-      .max(20, "Max 20 characters required")
-      .required(),
-    lastName: yup
-      .string()
-      .min(2, "Min 2 characters required")
-      .max(20, "Max 20 characters required")
-      .required(),
-  })
-  .required();
-type FormData = yup.InferType<typeof schema>;
-
 export default function Form() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>({
-    resolver: yupResolver(schema),
-  });
-  const onSubmit = async (data: FormData) => {
-    await usePostData(data);
-  };
+  const { onSubmit: handleSubmit, errors, register } = usePostData();
 
   return (
     <div className="flex min-h-[600px] justify-center bg-[#F8F8F8]">
@@ -53,7 +19,7 @@ export default function Form() {
           </p>
         </div>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit}
           className="flex flex-col items-center space-y-3 pb-10 pt-4 lg:px-16 lg:py-10"
         >
           <div className="flex flex-col items-center">
