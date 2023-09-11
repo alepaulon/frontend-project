@@ -11,12 +11,12 @@ export default function Footer() {
       id="help"
       className="flex flex-col justify-between bg-[#F8F8F8] py-10 md:flex-row md:px-20 xl:pb-40"
     >
-      <div className="max-w-xs px-6">
+      <div className="px-6 md:max-w-sm">
         <div className="flex flex-row items-center">
           <Image src={logo} alt="Logo from LaslesVPN" className="mr-2" />
           <h1 className="text-center text-xl font-bold">LaslesVPN</h1>
         </div>
-        <p className="py-5">
+        <p className="px-12 py-5 text-center md:px-6 md:text-left">
           <span className="font-medium">LaslesVPN</span> is a private virtual
           network that has unique features and has high security.
         </p>
@@ -56,7 +56,7 @@ export default function Footer() {
           ©2020Lasles<span className="font-medium">VPN</span>
         </p>
       </div>
-      <div className="flex flex-row space-x-6 px-6 text-center lg:space-x-24 lg:pr-10 lg:text-start">
+      <div className="flex flex-row justify-center space-x-6 px-6 text-center lg:space-x-24 lg:pr-10 lg:text-start">
         <div className="flex flex-col space-y-2">
           <a href="/" className="pb-4 font-bold">
             Product

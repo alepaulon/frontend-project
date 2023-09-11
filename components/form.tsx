@@ -26,10 +26,10 @@ export default function Form() {
             <p className="py-2 font-semibold">Name</p>
             <div className="flex flex-col items-center">
               <input
-                placeholder="Your name..."
-                className={`w-[150px] rounded-lg border ${
-                  errors.name ? "border-red-500" : "border-black"
-                } bg-[#F8F8F8] pl-2 placeholder:text-sm placeholder:font-thin placeholder:italic placeholder:text-slate-400 md:w-[180px]`}
+                placeholder="John"
+                className={`w-[150px] rounded-2xl border ${
+                  errors.name ? "border-red-500" : "border-gray-400"
+                } bg-[#F8F8F8] pl-4 placeholder:text-sm placeholder:font-thin placeholder:italic placeholder:text-slate-400 md:w-[180px]`}
                 {...register("name")}
               />
               <p className="mt-2 text-center italic">{errors.name?.message}</p>
@@ -39,10 +39,10 @@ export default function Form() {
             <p className="py-2 font-semibold">Last Name</p>
             <div className="flex flex-col items-center">
               <input
-                placeholder="Your lastname..."
-                className={`w-[150px] rounded-lg border ${
-                  errors.lastName ? "border-red-500" : "border-black"
-                } bg-[#F8F8F8] pl-2 placeholder:text-sm placeholder:font-thin placeholder:italic placeholder:text-slate-400 md:w-[180px]`}
+                placeholder="Doe"
+                className={`w-[150px] rounded-2xl border ${
+                  errors.lastName ? "border-red-500" : "border-gray-400"
+                } bg-[#F8F8F8] pl-4 placeholder:text-sm placeholder:font-thin placeholder:italic placeholder:text-slate-400 md:w-[180px]`}
                 {...register("lastName")}
               />
               <p className="mt-2 text-center italic">
@@ -54,10 +54,10 @@ export default function Form() {
             <p className="py-2 font-semibold">Contact Email</p>
             <div className="flex flex-col items-center">
               <input
-                placeholder="example@mail.com..."
-                className={`w-[150px] rounded-lg border ${
-                  errors.email ? "border-red-500" : "border-black"
-                } bg-[#F8F8F8] pl-2 placeholder:text-sm placeholder:font-thin placeholder:italic placeholder:text-slate-400 md:w-[180px]`}
+                placeholder="john.doe@mail.com"
+                className={`w-[150px] rounded-2xl border ${
+                  errors.email ? "border-red-500" : "border-gray-400"
+                } bg-[#F8F8F8] pl-4 placeholder:text-sm placeholder:font-thin placeholder:italic placeholder:text-slate-400 md:w-[180px]`}
                 {...register("email")}
               />
               <p className="mt-2 text-center italic">{errors.email?.message}</p>

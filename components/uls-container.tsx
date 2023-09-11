@@ -6,7 +6,7 @@ import servers from "@/public/icons/Server.png";
 
 export default function UsersLocationServers() {
   return (
-    <div className="mx-4 flex flex-row justify-evenly rounded-xl align-middle shadow-xl md:mx-10 md:w-[700px] lg:mx-16 lg:w-[900px] lg:py-10 xl:mx-44 xl:w-[1140px]">
+    <div className="mx-4 flex flex-row justify-evenly rounded-xl align-middle shadow-xl md:mx-10 lg:mx-16 lg:py-10 xl:mx-44">
       <div className="flex flex-col items-center space-y-2 pb-6 align-middle md:flex-row lg:flex-row">
         <Image
           src={users}

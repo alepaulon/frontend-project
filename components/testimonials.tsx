@@ -15,7 +15,7 @@ export default function Testimonials() {
           pleasure when using this crazy feature.
         </p>
       </div>
-      <div className="py-10">
+      <div className="py-2">
         <Carousel />
       </div>
     </div>
